@@ -1,5 +1,3 @@
-<h2><%=t :get_your_openid %></h2>
-<%= simple_format t(:openid_intro) %>
-<% unless Masq::Engine.config.masq['disable_registration'] %>
-  <%= simple_format t(:openid_intro_link, :signup_link => link_to(t(:signup_for_an_openid), new_account_path)) %>
-<% end %>
+<h1>Welcome to <a href="http://www.telescopestudios.com">Telescope Studios</a></h1>
+<p><a href="<%= login_path %>" class="btn btn-primary btn-large">Log in</a></p>
+
