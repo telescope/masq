@@ -11,8 +11,11 @@
         <ul class="nav">
           <%= yield :menu_extras %>
           <% if logged_in? %>
-            <li class="pull-right"><a href="<%= logout_path %>">Log out</a></li>
-        <% end %>
+            <% if current_account.admin? %>
+              <li><a href="/users">View users</a></li>
+            <% end %>
+            <li class="pull-right"><a href="/logout">Log out</a></li>
+          <% end %>
         </ul>
       </div>
     </div>

@@ -23,7 +23,6 @@ module Masq
     before_save   :encrypt_password
     after_save    :deliver_forgot_password
 
-    attr_accessible :login, :email, :password, :password_confirmation, :public_persona_id, :yubikey_mandatory
     attr_accessor :password
 
     class ActivationCodeNotFound < StandardError; end
