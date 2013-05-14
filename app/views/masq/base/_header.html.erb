@@ -23,6 +23,8 @@
 </div>
 <div class="lower-header">
   <div class="container">
+    <% if flash[:notice] %><span class="label label-info"><%= flash[:notice] %></span><% end %>
+    <% if flash[:error] %><span class="label label-important"><%= flash[:error] %></span><% end %>
     <%= yield :page_header %>
   </div>
 </div>
