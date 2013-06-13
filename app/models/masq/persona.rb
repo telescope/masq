@@ -22,6 +22,10 @@ module Masq
       prop ? prop[0] : nil
     end
 
+    def email
+      account.try(:email)
+    end
+
     # Returns the personas attribute for the given SReg name or AX Type URI
     def property(type)
       prop = Persona.mappings.detect { |i| i[1].include?(type) }
