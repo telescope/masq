@@ -21,7 +21,7 @@ module Masq
     validates_exclusion_of :login, :in => %w[account session password help safe-login forgot_password reset_password login logout server consumer]
 
     before_save   :encrypt_password
-    after_save    :deliver_forgot_password
+    after_save    :deliver_forgot_password, :create_default_persona
 
     attr_accessor :password
 
@@ -208,6 +208,10 @@ module Masq
 
     def make_password_reset_code
       self.password_reset_code = Digest::SHA1.hexdigest( Time.now.to_s.split(//).sort_by {rand}.join )
+    end
+
+    def create_default_persona
+      personas.create! title: 'Telescope' if personas.where(title: 'Telescope').empty?
     end
 
     private
