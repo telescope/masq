@@ -11,6 +11,7 @@
         <ul class="nav">
           <%= yield :menu_extras %>
           <% if logged_in? %>
+            <li><a href="/admin/users/new">Add a user</a></li>
             <% if current_account.admin? %>
               <li><a href="/admin/users">View users</a></li>
             <% end %>

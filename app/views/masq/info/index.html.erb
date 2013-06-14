@@ -1,2 +1,5 @@
-<p><a href="<%= login_path %>" class="btn btn-primary btn-large">Log in</a></p>
+<% if !logged_in? %>
+  <p><a href="<%= login_path %>" class="btn btn-primary btn-large">Log in</a></p>
+<% end %>
+
 
